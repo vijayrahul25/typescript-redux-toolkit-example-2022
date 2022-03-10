@@ -1,70 +1,46 @@
 type langauge = {
-    name: string;
-    description: string;
+  name: string;
+  description: string;
 };
-
 type translations = {
-    en: langauge;
+  en: langauge;
 };
-
 export type category = {
-    backgroundImage: string;
-    translations: translations;
-    cid: number;
-    totalPostCount: number;
-    totalTopicCount: number;
+  backgroundImage: string;
+  translations: translations;
+  cid: number;
+  totalPostCount: number;
+  totalTopicCount: number;
 };
-  
 type teaser = {
-    content: string;
+  content: string;
 };
-
 export type topic = {
-    tid: number;
-    title: string;
-    teaser: teaser;
-    postcount: number;
+  tid: number;
+  title: string;
+  teaser: teaser;
+  postcount: number;
 };
-  
 export type post = {
-    pid: number;
-    content: string;
+  pid: number;
+  content: string;
 };
-  
-export type  loading = {status: boolean, message: string}
 
-export type error = {status: boolean, message: string}
+export type Tloader = { status: boolean; message: string };
+export type Terror = { status: boolean; message: string };
 
-// export type TActionType = {
-//     type: Actions;
-//     data: any;
-// };
-
-export type TtopicsState = {    
-    topicList: Array<topic>;  
-    loading: boolean;
-    error:boolean;   
+export type TtopicsState = {
+  topicList: Array<topic>;
+  loading: Tloader;
+  error: Terror;
 };
 export type TcategoriesState = {
-    categoryList: Array<category>;  
-    loading: boolean;
-    error:boolean;  
+  categoryList: Array<category>;
+  loading: Tloader;
+  error: Terror;
 };
 export type TpostsState = {
-    postList: Array<post>;
-    loading: boolean;
-    error:boolean; 
+  postList: Array<post>;
+  loading: Tloader;
+  error: Terror;
 };
-export type TcommonState = {   
-    loading: loading;
-    error: error;
-};
-
-export type TStore = {
-    categoriesReducers: TcategoriesState;
-    topicsReducer: TtopicsState;
-    postsReducers: TpostsState;
-    commonReducers: TcommonState;
-};
-
-// export type DispatchType = (args: TActionType) => TActionType
